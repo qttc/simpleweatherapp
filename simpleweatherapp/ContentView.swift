@@ -9,7 +9,9 @@ struct ContentView: View {
                 WeatherTableView(
                     weatherData: weatherData,
                     fetchWeatherData: weatherViewModel.fetchWeatherData,
-                    lastUpdate: weatherViewModel.lastUpdate) // Pass the lastUpdate property from WeatherViewModel
+                    lastUpdate: weatherViewModel.lastUpdate,
+                    locationCoordinate: weatherViewModel.coordinate
+                )
             } else {
                 ProgressView()
             }

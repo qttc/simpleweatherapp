@@ -1,10 +1,12 @@
 import SwiftUI
+import MapKit
 
 struct WeatherTableView: View {
     let weatherData: WeatherData
     let fetchWeatherData: () -> Void
     let lastUpdate: Date?
     @State private var isFetchingData = false
+    let locationCoordinate: CLLocationCoordinate2D?
     
     var body: some View {
         VStack {
@@ -39,6 +41,12 @@ struct WeatherTableView: View {
                     .font(.subheadline)
             }
             .padding()
+            
+            if let coordinate = locationCoordinate {
+                MapView(coordinate: coordinate)
+                    .frame(height: 200)
+                    .cornerRadius(10)
+            }
             
             Spacer()
             
